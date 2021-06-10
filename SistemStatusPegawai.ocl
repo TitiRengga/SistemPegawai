@@ -1,0 +1,39 @@
+package Data
+    context Data::Data()
+    pre:inputnip=null
+    post:self.nip=inputnip --initial input Data
+
+    context Data::InsertTo(Status nomornip)
+    pre:inputnip=nomornip
+    post:self.nip=inputnomornip
+
+    context Data::MemasukkanData()
+    pre:nip not null
+    post:if self.nip not null
+        then nip->MemprosesData()
+        else print 'Harap masukkan nip anda'
+endpackage
+
+package Pensiun
+    context Pensiun::MemprosesData()
+    pre:true
+    post:print 'Data pegawai pensiun sedang diproses....'
+endpackage
+
+package Aktif
+    context Aktif::MemprosesData()
+    pre:true
+    post:print 'Data pegawai aktif sedang diproses....'
+endpackage
+
+package Sakit
+    context Sakit::MemprosesData()
+    pre:true
+    post:print 'Data pegawai sakit sedang diproses....'
+endpackage
+
+package cuti
+    context cuti::MemprosesData()
+    pre:true
+    post:print 'Data pegawai cuti sedang diproses....'
+endpackage
